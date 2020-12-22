@@ -1,6 +1,6 @@
 <template>
-  <div id="app">
-    <div class="pokemons">
+  <div id="app" class="container">
+    <div id="pokemons" class="columns">
       <Pokemon
         v-for="(pokemon, index) in pokemons"
         :key="index"
@@ -12,12 +12,9 @@
 </template>
 
 <script>
-import axios from "axios";
+import api from "./api";
 import Pokemon from "./components/Pokemon";
 
-const api = axios.create({
-  baseURL: "https://pokeapi.co/api/v2",
-});
 export default {
   name: "App",
   components: {
@@ -44,8 +41,12 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+#pokemons {
+  display: flex;
+  flex-wrap: wrap;
 }
 </style>
