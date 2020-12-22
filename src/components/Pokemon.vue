@@ -1,12 +1,19 @@
 <template>
-  <div id="pokemon" class="column is-3">
-    <div class="box">
-      <h4>{{ num }} {{ name | upper }}</h4>
-      <ul class="types">
-        <li class="type" v-for="(t, index) of pokemon.types" :key="index">
-          {{ t.type.name }}
-        </li>
-      </ul>
+  <div id="pokemon" class="card">
+    <div class="card-image">
+      <figure class="image is-128x128">
+        <img :src="pokemon.sprites.front_default" alt="Placeholder image" />
+      </figure>
+    </div>
+    <div class="card-content">
+      <div class="media-content">
+        <p class="title is-4 mb-3">{{ this.name }}</p>
+        <ul class="types">
+          <li class="type" v-for="(t, index) of pokemon.types" :key="index">
+            {{ t.type.name }}
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
@@ -36,9 +43,11 @@ export default {
 };
 </script>
 <style scoped>
+#pokemon .image {
+  margin: 0 auto;
+}
 .types {
   display: flex;
-  padding: 5px 0;
 }
 .types .type {
   background-color: rgb(236, 236, 236);

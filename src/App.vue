@@ -1,12 +1,13 @@
 <template>
   <div id="app" class="container">
-    <div id="pokemons" class="columns">
-      <Pokemon
+    <div id="pokemons" class="columns is-multiline">
+      <div
+        class="column is-3"
         v-for="(pokemon, index) in pokemons"
         :key="index"
-        :name="pokemon.name"
-        :url="pokemon.url"
-      />
+      >
+        <Pokemon :name="pokemon.name" :url="pokemon.url" />
+      </div>
     </div>
   </div>
 </template>
@@ -44,9 +45,5 @@ export default {
   color: #2c3e50;
   margin-top: 15px;
   margin-bottom: 15px;
-}
-#pokemons {
-  display: flex;
-  flex-wrap: wrap;
 }
 </style>
